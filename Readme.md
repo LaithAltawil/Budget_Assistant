@@ -23,7 +23,7 @@ pip install openai langchain-openai langgraph python-dotenv pydantic
 
 1. Clone the repository:
 ```bash
-git https://github.com/LaithAltawil/Budget_Assistant.git
+git clone https://github.com/LaithAltawil/Budget_Assistant.git
 cd Budget_Assistant
 ```
 
@@ -81,61 +81,53 @@ You: export to csv
 Assistant: 📄 Exported 47 expenses to expenses_export_20250720_143022.csv
 ```
 
-
 ## 🛠️ Architecture
 
-```
 Built with **LangGraph** for intelligent routing and state management:
 
-![Architure.png](Architure.png)
-
-```
+![Architecture.png](Architecture.png)
 
 ### Key Components
 
-```
 - **State Management** - TypedDict with LangGraph for conversation flow
 - **AI Processing** - OpenAI GPT-4o-mini for cost-effective natural language understanding
 - **Smart Router** - Automatically detects user intent and routes to appropriate function
 - **Data Storage** - JSON files (free), SQLite (free), easily extensible to cloud
-```
+
 ## 💾 Storage Options
-```
+
 ### Current (Free)
 - **JSON Files** - Simple, portable, version controllable
 - **SQLite** - Structured queries, better for large datasets
-```
+
 ### Easy Extensions
-```
 - **Google Sheets API** - 100 requests/100 seconds (free tier)
 - **Supabase** - 500MB database, 2M row inserts/month (free)
 - **Firebase** - 1GB storage, 50k reads/day (free)
-```
-## 🔧 Configuration
-```
 
-```
+## 🔧 Configuration
+
 ### Model Selection
-```
-python
+```python
 # Current: Cost-effective
 llm = ChatOpenAI(model="gpt-4o-mini")
 
 # Upgrade option: More powerful
 llm = ChatOpenAI(model="gpt-4")
-
 ```
+
 ### Categories
 Easily customize spending categories in `ExpenseData` class:
-```
-python
+```python
 category: Literal[
     "food", "transport", "shopping", "bills", 
     "entertainment", "health", "other"
 ]
 ```
 
-### Ideas for Contributions
+## 🤝 Contributing
+
+Ideas for contributions:
 - 📱 Web interface with Streamlit/Flask
 - 📈 Advanced visualizations with Plotly
 - 🔔 Budget alerts and notifications
@@ -152,11 +144,11 @@ category: Literal[
 ## 📞 Support
 
 If you have questions or need help:
-
-1. Check the [Issues](https://github.com/yourusername/budget-assistant/issues) page
+1. Check the [Issues](https://github.com/LaithAltawil/Budget_Assistant/issues) page
 2. Create a new issue with detailed description
 3. Star ⭐ the repo if you find it helpful!
 
 ---
+**Made with ❤️ for better personal finance management**
 
 **Made with ❤️ for better personal finance management**
