@@ -150,5 +150,3 @@ If you have questions or need help:
 
 ---
 **Made with ❤️ for better personal finance management**
-
-**Made with ❤️ for better personal finance management**
