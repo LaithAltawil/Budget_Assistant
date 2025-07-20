@@ -23,7 +23,7 @@ pip install openai langchain-openai langgraph python-dotenv pydantic
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/budget-assistant
+git [clone https://github.com/yourusername/budget-assistant](https://github.com/LaithAltawil/Budget_Assistant.git)
 cd budget-assistant
 ```
 
@@ -85,7 +85,7 @@ Assistant: 📄 Exported 47 expenses to expenses_export_20250720_143022.csv
 ## 🛠️ Architecture
 
 Built with **LangGraph** for intelligent routing and state management:
-![Architure.png]
+![Architure.png](Architure.png)
 
 ```
 
