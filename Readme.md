@@ -23,8 +23,8 @@ pip install openai langchain-openai langgraph python-dotenv pydantic
 
 1. Clone the repository:
 ```bash
-git [clone https://github.com/yourusername/budget-assistant](https://github.com/LaithAltawil/Budget_Assistant.git)
-cd budget-assistant
+git https://github.com/LaithAltawil/Budget_Assistant.git
+cd Budget_Assistant
 ```
 
 2. Create a `.env` file:
@@ -84,52 +84,56 @@ Assistant: 📄 Exported 47 expenses to expenses_export_20250720_143022.csv
 
 ## 🛠️ Architecture
 
+```
 Built with **LangGraph** for intelligent routing and state management:
+
 ![Architure.png](Architure.png)
 
 ```
 
 ### Key Components
 
+```
 - **State Management** - TypedDict with LangGraph for conversation flow
 - **AI Processing** - OpenAI GPT-4o-mini for cost-effective natural language understanding
 - **Smart Router** - Automatically detects user intent and routes to appropriate function
 - **Data Storage** - JSON files (free), SQLite (free), easily extensible to cloud
-
+```
 ## 💾 Storage Options
-
+```
 ### Current (Free)
 - **JSON Files** - Simple, portable, version controllable
 - **SQLite** - Structured queries, better for large datasets
-
+```
 ### Easy Extensions
+```
 - **Google Sheets API** - 100 requests/100 seconds (free tier)
 - **Supabase** - 500MB database, 2M row inserts/month (free)
 - **Firebase** - 1GB storage, 50k reads/day (free)
-
+```
 ## 🔧 Configuration
+```
 
+```
 ### Model Selection
-```python
+```
+python
 # Current: Cost-effective
 llm = ChatOpenAI(model="gpt-4o-mini")
 
 # Upgrade option: More powerful
 llm = ChatOpenAI(model="gpt-4")
-```
 
+```
 ### Categories
 Easily customize spending categories in `ExpenseData` class:
-```python
+```
+python
 category: Literal[
     "food", "transport", "shopping", "bills", 
     "entertainment", "health", "other"
 ]
 ```
-
-
-
-
 
 ### Ideas for Contributions
 - 📱 Web interface with Streamlit/Flask
