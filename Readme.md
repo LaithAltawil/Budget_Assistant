@@ -85,7 +85,7 @@ Assistant: 📄 Exported 47 expenses to expenses_export_20250720_143022.csv
 
 Built with **LangGraph** for intelligent routing and state management:
 
-![Architecture.png](Architecture.png)
+![Architecture.png](Architure.png)
 
 ### Key Components
 
