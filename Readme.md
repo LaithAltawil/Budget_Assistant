@@ -23,8 +23,8 @@ pip install openai langchain-openai langgraph python-dotenv pydantic
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/budget-assistant
-cd budget-assistant
+git clone https://github.com/LaithAltawil/Budget_Assistant.git
+cd Budget_Assistant
 ```
 
 2. Create a `.env` file:
@@ -81,13 +81,11 @@ You: export to csv
 Assistant: 📄 Exported 47 expenses to expenses_export_20250720_143022.csv
 ```
 
-
 ## 🛠️ Architecture
 
 Built with **LangGraph** for intelligent routing and state management:
-![Architure.png]
 
-```
+![Architecture.png](Architure.png)
 
 ### Key Components
 
@@ -127,11 +125,9 @@ category: Literal[
 ]
 ```
 
+## 🤝 Contributing
 
-
-
-
-### Ideas for Contributions
+Ideas for contributions:
 - 📱 Web interface with Streamlit/Flask
 - 📈 Advanced visualizations with Plotly
 - 🔔 Budget alerts and notifications
@@ -148,11 +144,9 @@ category: Literal[
 ## 📞 Support
 
 If you have questions or need help:
-
-1. Check the [Issues](https://github.com/yourusername/budget-assistant/issues) page
+1. Check the [Issues](https://github.com/LaithAltawil/Budget_Assistant/issues) page
 2. Create a new issue with detailed description
 3. Star ⭐ the repo if you find it helpful!
 
 ---
-
 **Made with ❤️ for better personal finance management**
