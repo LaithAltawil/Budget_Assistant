@@ -1,5 +1,11 @@
 import os
+import smtplib
+import ssl
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from main import config
 
+config()
 GMAIL_USER = os.getenv('GMAIL_USER')  # your-email@gmail.com
 GMAIL_APP_PASSWORD = os.getenv('GMAIL_APP_PASSWORD')  # App-specific password
 RECIPIENT_EMAIL = os.getenv('RECIPIENT_EMAIL')  # where to send reports
@@ -95,13 +101,13 @@ def send_gmail(subject: str, body: str) -> bool:
 
     try:
         # Create message
-        message = MimeMultipart("alternative")
+        message = MIMEMultipart("alternative")
         message["Subject"] = subject
         message["From"] = GMAIL_USER
         message["To"] = RECIPIENT_EMAIL
 
         # Add HTML body
-        html_part = MimeText(body, "html")
+        html_part = MIMEText(body, "html")
         message.attach(html_part)
 
         # Create secure connection and send

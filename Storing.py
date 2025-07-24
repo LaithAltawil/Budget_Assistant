@@ -1,8 +1,10 @@
-import json
-import sqlite3
+
 
 from main import State
+import sqlite3
 
+from datetime import datetime, timedelta
+from typing import List, Dict, Any, Optional
 
 def database_setup():
     conn = sqlite3.connect('Spendings.db')
@@ -22,10 +24,7 @@ def database_setup():
     conn.close()
 
 
-import sqlite3
-import json
-from datetime import datetime, timedelta
-from typing import List, Dict, Any, Optional
+
 
 
 def database_setup():

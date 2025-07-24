@@ -1,7 +1,14 @@
+import calendar
 from datetime import datetime
+from typing import Literal
+from SendEmail import generate_monthly_email_body, send_gmail
+from main import State, MessageClassifier
+from Storing import database_setup, save_to_db, get_monthly_summary
 
+# CHANGE: Fixed import path from SendEmail to sendemail
+# CHANGE: Import llm from main.py instead of test.py to avoid circular imports
 from main import State, MessageClassifier, llm
-from Storing import database_setup, save_to_db
+# CHANGE: Added handle_query to imports and removed duplicate State import from storing
 
 
 def classify_message(state : State):

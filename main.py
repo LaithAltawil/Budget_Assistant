@@ -17,9 +17,13 @@ from langchain.chat_models import init_chat_model
 def config():
     env.load_dotenv()
 
+config()
 os.environ["OPENAI_API_KEY"] = os.getenv("API_KEY")
-
 llm = init_chat_model("openai:gpt-4o-mini")
+
+
+
+# os.environ["OPENAI_API_KEY"] = os.getenv("API_KEY")
 
 class State(TypedDict):
     # Messages have the type "list". The `add_messages` function
@@ -53,30 +57,7 @@ class MessageClassifier(BaseModel):
     description: str = Field(description="Brief description of the expense")
 
 
-# Setup instructions for Gmail
-def setup_gmail_instructions():
-    """Print setup instructions for Gmail integration"""
-    print("""
-📧 Gmail Setup Instructions:
 
-1. Enable 2-Factor Authentication:
-   - Go to Google Account settings
-   - Security > 2-Step Verification > Turn on
-
-2. Generate App Password:
-   - Security > App passwords
-   - Select app: Mail
-   - Select device: Other (custom name)
-   - Copy the 16-character password
-
-3. Set Environment Variables:
-   export GMAIL_USER="your-email@gmail.com"
-   export GMAIL_APP_PASSWORD="your-16-char-app-password"
-   export RECIPIENT_EMAIL="where-to-send-reports@gmail.com"
-
-4. Test the setup:
-   python -c "from expense_router import send_gmail; send_gmail('Test', 'Hello!')"
-""")
 
 
 
