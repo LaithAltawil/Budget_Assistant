@@ -1,4 +1,4 @@
-# 💰 Simple Budget Collection Assistant
+# 💰 Simple Budget Collection Assistant-Under Development
 
 A smart, AI-powered personal budget tracker that helps you log expenses, analyze spending patterns, and get personalized money-saving recommendations.
 
