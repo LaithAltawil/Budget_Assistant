@@ -2,18 +2,19 @@ import calendar
 from datetime import datetime
 from typing import Literal
 from SendEmail import generate_monthly_email_body, send_gmail
-from main import State, MessageClassifier
+from setup import State, MessageClassifier, llm
 from Storing import database_setup, save_to_db, get_monthly_summary
 
-# CHANGE: Fixed import path from SendEmail to sendemail
-# CHANGE: Import llm from main.py instead of test.py to avoid circular imports
-from main import State, MessageClassifier, llm
-# CHANGE: Added handle_query to imports and removed duplicate State import from storing
 
 
 def classify_message(state : State):
     last_message = state["messages"][-1]
     classifier_llm = llm.with_structured_output(MessageClassifier)
+
+    # Get the actual message content
+    message_content = last_message.get("content", "")
+
+
     result = classifier_llm.invoke([{
         "role": "system",
         "content": """
@@ -46,7 +47,11 @@ Example:
 "Paid 50 for gas" → category="transport", amount=50.0, description="gas"
 "Bought coffee for $4.50" → category="food", amount=4.5, description="coffee"
 """
-    }])
+    },{
+            "role": "user",
+            "content": message_content
+        }])
+
 
     return {
         "category": result.category,

@@ -3,9 +3,11 @@ import smtplib
 import ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from main import config
 
-config()
+from datetime import datetime
+from config import config
+
+
 GMAIL_USER = os.getenv('GMAIL_USER')  # your-email@gmail.com
 GMAIL_APP_PASSWORD = os.getenv('GMAIL_APP_PASSWORD')  # App-specific password
 RECIPIENT_EMAIL = os.getenv('RECIPIENT_EMAIL')  # where to send reports
@@ -13,6 +15,7 @@ RECIPIENT_EMAIL = os.getenv('RECIPIENT_EMAIL')  # where to send reports
 
 def generate_monthly_email_body(summary: dict, month_name: str, year: int) -> str:
     """Generate HTML email body for monthly report"""
+    report_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     html_body = f"""
     <html>
@@ -37,9 +40,9 @@ def generate_monthly_email_body(summary: dict, month_name: str, year: int) -> st
 
         <div class="summary">
             <h3>📊 Monthly Summary</h3>
-            <p class="total">Total Spending: ${summary['total']:.2f} JD</p>
+            <p class="total">Total Spending: {summary['total']:.2f} JD</p>
             <p>Total Transactions: {summary['transaction_count']}</p>
-            <p>Average per Transaction: ${summary['total'] / summary['transaction_count']:.2f} JD</p>
+            <p>Average per Transaction: {summary['total'] / summary['transaction_count']:.2f} JD</p>
         </div>
 
         <div>
@@ -58,12 +61,12 @@ def generate_monthly_email_body(summary: dict, month_name: str, year: int) -> st
         html_body += f"""
                 <tr>
                     <td>{category.title()}</td>
-                    <td>${amount:.2f}</td>
+                    <td>{amount:.2f} JD</td>
                     <td>{percentage:.1f}%</td>
                 </tr>
         """
 
-    html_body += """
+    html_body += f"""
             </table>
         </div>
 
@@ -73,7 +76,7 @@ def generate_monthly_email_body(summary: dict, month_name: str, year: int) -> st
 
         <div style="margin-top: 20px; text-align: center; color: #666;">
             <p>Generated automatically by your Expense Tracker</p>
-            <p>Report Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+             <p>Reported Date : {report_date}</p>
         </div>
     </body>
     </html>

@@ -7,7 +7,7 @@ from langchain.chat_models import init_chat_model
 
 from SendEmail import send_gmail
 from Storing import database_setup, handle_query, load_from_db, get_total_spending
-from main import config, State
+from main import  State
 from nodes import classify_message, save_expense, send_monthly_report, router
 # CHANGE: Suppress Pydantic warnings for cleaner output
 
@@ -250,10 +250,3 @@ for msg in test_messages:
     route = router(dummy_state)
     print(f"Message: '{msg['content']}' -> Routed to: {route} (Expected: {msg['expected']})")
 
-print("\n--- Testing Gmail Send (Direct) ---")
-# Test sending a simple email directly
-success = send_gmail("Test Subject", "<h1>This is a test email</h1><p>Sent from Python!</p>")
-if success:
-    print("Direct email test successful!")
-else:
-    print("Direct email test failed. Check your .env configuration and Gmail setup.")
