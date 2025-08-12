@@ -12,7 +12,7 @@ async def send_me_periodic_messages(context):
 async def start(update, context):
     await update.message.reply_text("Bot started!")
 
-application = Application.builder().token("8233828343:AAHd5XMfPZ_bEUTbq5ETeej4LRuXpf33K-E").build()
+application = Application.builder().token("apikey").build()
 
 # Command handler
 application.add_handler(CommandHandler("start", start))
